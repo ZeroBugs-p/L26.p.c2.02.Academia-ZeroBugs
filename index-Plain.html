@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Inscritos</title>
+</head>
+<body>
+    
+    <!-- Creamos una Sección donde se Reporta lo Solicitado  -->
+        <section id="body">
+
+            <!-- Titulo de donde Se Reportan lo Solicitado -->
+                <h2>Reporte de Academia</h2>
+
+            <!-- Barra Separadora -->
+                <hr>
+
+            <!-- Creamos un div por cada Salida Esperada -->
+                <div>
+                    <strong>Se Inscribieron:</strong> <span id="body_lblInscritos">0</span> Personas
+                </div>
+
+                <div>
+                    <strong>Porcentaje de Menores de Edad:</strong> <span id="body_lblPorcentajeME">0</span>%
+                </div>
+
+                <div>
+                    <strong>Porcentaje General de Edades No Menores ni de 3era Edad:</strong> <span id="body_lblPorcentajeEG">0</span>%
+                </div>
+
+                <div>
+                    <strong>Porcentaje de 3era Edad</strong> <span id="body_lblPorcentaje3erE">0</span>%
+                </div>
+
+                <div>
+                    <strong>Porcentaje de Incripcion en Ingles:</strong> <span id="body_lblPorcentajeIIngles">0</span>%
+                </div>
+
+                <div>
+                    <strong>Porcentaje de Incripcion en Computacion:</strong> <span id="body_lblPorcentajeIComp">0</span>%
+                </div>
+
+                <div>
+                    <strong>Porcentaje de Incripcion en I.A:</strong> <span id="body_lblPorcentajeIIA">0</span>%
+                </div>
+
+            <!-- Barra Separadora -->
+                <hr>
+
+            <!-- Creamos un Boton que Procesa a Cada Inscrito -->
+                <button id="body_btNewinscrito"><strong>Procesar Inscrito</strong></button>
+
+        </section>
+
+    <!-- Creamos una Seccion Para Solicitar Los Datos -->
+        <section id="inscrito" hidden style="margin-top: 20px; border: 1px solid #ccc; padding: 15px; width: 350px;">
+
+        <!-- Titulo de donde se Procesan los Datos -->
+            <h2 id="inscrito_lblInscrito">Procesar Inscrito</h2>
+
+        <!-- Input del Nombre del Inscrito -->
+            <div>
+                <label> Nombre del Profesor:
+                    <input type="text" id="inscrito_inNombre" placeholder="Ej: Mario">
+                </label>
+            </div>
+
+        <!-- Input de la cedula del Inscrito -->
+            <div>
+                <label> Cedula del Inscrito:
+                    <input type="number" id="inscrito_inCedula" placeholder="Ej: 32306281">
+                </label>
+            </div>
+
+        <!-- Seleccionador del Tipo de Profesor -->
+            <div>
+                <label>Sexo del Inscrito</label>
+                <select id="inscrito_inSexo">
+                    <option value="" disabled selected>Seleccione el Sexo del Inscrito</option>
+                    <option value="Mujer">Mujer</option>
+                    <option value="Hombre">Hombre</option>
+                </select>
+            </div>
+
+        <!-- Input del Seleccionador del Curso -->
+            <div>
+                <label> Curso</label>
+                <select id="inscrito_inCurso">
+                    <option value="" disabled selected>Selecciona el Curso a Inscribir</option>
+                    <option value="Ingles">Ingles 20$</option>
+                    <option value="Computacion">Computacion 25$</option>
+                    <option value="I.A">I.A 30$</option>
+                </select>
+            </div>
+
+        <!-- Input de la fecha de Nacimiento -->
+            <div>
+                <label> Fecha de Nacimiento:
+                    <input type="date" id="inscrito_inFechaN">
+                </label>
+            </div>
+
+        <!-- Creamos los Botones de Aceptar y Cancelar -->
+            <button type="button" id="inscrito_btCancelar"><Strong>Cancelar</Strong></button>
+            <button type="button" id="inscrito_btAceptar"><strong>Aceptar</strong></button>
+
+        </section>
+
+    <!-- Importamos Los Archivos Js -->
+        <script type="module">
+
+        // Importamos los Controladores
+            import Cl_cAcademia from "./dist/controllers/Cl_cAcademia.js";
+            import Cl_cInscrito from "./dist/controllers/Cl_cInscrito.js";
+
+        // Importamos las Vistas Plain
+            import Cl_vAcademiaPlain from "./dist/views/Cl_vAcademiaPlain.js";
+            import Cl_vInscritoPlain from "./dist/views/Cl_vInscritoPlain.js";
+
+        // Instanciamos Las Vistas
+            const vistaAcademia = new Cl_vAcademiaPlain();
+            const vistaInscrito = new Cl_vInscritoPlain();
+
+        // Inyectamos Las Vistas a los Controladores
+            const controladorInscrito = new Cl_cInscrito(vistaInscrito);
+                new Cl_cAcademia(vistaAcademia, controladorInscrito);
+
+        </script>
+
+
+</body>
+</html>

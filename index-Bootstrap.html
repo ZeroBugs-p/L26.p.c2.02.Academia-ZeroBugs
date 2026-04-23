@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesores-A</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+</head>
+<body>
+
+    <!-- Creamos una Sección donde se Reporta lo Solicitado  -->
+        <div id="app-bootstrap" class="container mt-5">
+
+        <!-- Titulo de Donde se Procesan los Datos -->
+            <h2 style="text-align: center; font-family: Arial, sans-serif; font-weight: bolder;">Reporte de Universidad (Bootstrap)</h2>
+
+        <!-- Separador de Textos -->
+            <hr>
+
+        <!-- Creamos un div por cada Salida Esperada -->
+            <div class="alert alert-info">
+                <strong>Nombre del Profesor:</strong> <span id="body_lblInscritos">0</span>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>Monto del Bono:</strong> <span id="body_lblPorcentajeME">0</span>$
+            </div>
+                
+            <div class="alert alert-info">
+                <strong>Monto del Sueldo "Profesor Fijo":</strong> <span id="body_lblPorcentajeEG">0</span>$
+            </div>
+
+            <div class="alert alert-info">
+                <strong>Horas Trabajadas "Profesor Contratado":</strong> <span id="body_lblPorcentaje3erE">0</span>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>Ingreso Total del Profesor:</strong> <span id="body_lblPorcentajeIIngles">0</span>$
+            </div>
+
+        <!-- Separador de Textos -->
+            <hr>
+
+        <!-- Creamos un Boton que Procesa a cada Profesor -->
+            <button style="display: block; margin: 0 auto;" type="button" class="btn btn-primary" id="body_btNewinscrito">
+                    <strong>Procesar Profesor</strong></button>
+    
+        <!-- Muchos Div: Interfaz que Solicita Todos los Atributos Del Profesor -->
+            <div class="modal fade" id="inscrito" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+        
+        <!-- Titulos de las Cajitas que se van a Procesar --> 
+                        <div class="modal-header">
+                            <h5 class="modal-title">Procesar Profesor</h5>
+                        </div>
+
+        <!-- Input del Nombre del Profesor -->
+                        <div class="modal-body">
+                            <label class="form-label">Nombre del Profesor:</label>
+                            <input type="text" class="form-control" id="inscrito_inNombre" placeholder="Ej: Mario">
+                        </div>
+
+        <!-- Input del Bono del Profesor -->
+                        <div class="modal-body">
+                            <label class="form-label">Bono del Profesor:</label>
+                            <input type="number" class="form-control" id="inscrito_inCedula" placeholder="Ej: 500">
+                        </div>
+
+        <!-- Seleccionador del Tipo de Profesor -->
+                        <div class="modal-body">
+                            <label class="form-label">Tipo de Profesor:</label>
+                            <select class="form-control" id="inscrito_inSexo">
+                                <option value="" disabled selected >Seleccione El Tipo de Profesor</option>
+                                <option value="fijo">Fijo</option>
+                                <option value="contratado">Contratado</option>
+                            </select>
+                        </div>
+
+        <!-- Input del Sueldo del Profesor Fijo -->
+                        <div class="modal-body" id="hideSalary" hidden>
+                            <label class="form-label">Sueldo del Profesor "Fijo":</label>
+                            <input type="number" class="form-control" id="inscrito_inFechaN" placeholder="Ej: 300">
+                        </div>
+
+        <!-- Input de las Horas del Profesor Contratado -->
+                        <div class="modal-body" id="hideHours" hidden>
+                            <label class="form-label">Horas de Trabajo del Profesor "Contratado"</label>
+                            <input type="number" class="form-control" id="inscrito_inCurso" placeholder="Ej: 15">
+                        </div>
+        
+        <!-- Botones de Aceptar y Cancelar -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="inscrito_btCancelar">Cancelar</button>
+                            <button type="button" class="btn btn-success" id="inscrito_btAceptar">Aceptar</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        <!-- Copy y Pega del Link -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- LLamamos a las Clases -->
+
+            <script type="module">
+
+                // Clases Controlerss
+                    import Cl_cAcademia from "./dist/controllers/Cl_cAcademia.js";
+                    import Cl_cIncrito from "./dist/controllers/Cl_cIncrito.js";
+
+                // Importamos las Vistas de Bootstrap
+                    import Cl_vUniBootstrap from "./dist/views/Cl_vUniBootstrap.js";
+                    import Cl_vProfeBootstrap from "./dist/views/Cl_vProfeBootstrap.js";
+
+                // Instanciamos las Vistas 
+                    const vistaAcademia = new Cl_vUniBootstrap();
+                    const vistaInscrito = new Cl_vProfeBootstrap();
+
+                // Inyectamos las Vistas en los Mismos Controladores
+                    const controladorInscrito = new Cl_cIncrito(vistaInscrito);
+                        new Cl_cAcademia(vistaAcademia, controladorInscrito);
+
+            </script>
+</body>
+</html>
