@@ -7,6 +7,8 @@ export default class Cl_vAcademiaPlain {
     lblPorcentajeIIngles;
     lblPorcentajeIComp;
     lblPorcentajeIIA;
+    lblTotalDME;
+    lblTotalD3erE;
     btNewinscrito;
     vista;
     constructor() {
@@ -17,13 +19,15 @@ export default class Cl_vAcademiaPlain {
         this.lblPorcentajeIIngles = document.getElementById("body_lblPorcentajeIIngles");
         this.lblPorcentajeIComp = document.getElementById("body_lblPorcentajeIComp");
         this.lblPorcentajeIIA = document.getElementById("body_lblPorcentajeIIA");
+        this.lblTotalDME = document.getElementById("body_lblTotalDME");
+        this.lblTotalD3erE = document.getElementById("body_lblTotalD3erE");
         this.btNewinscrito = document.getElementById("body_btNewinscrito");
         this.vista = document.getElementById("body");
     }
     onNewInscrito(callback) {
         this.btNewinscrito.onclick = callback;
     }
-    reportar({ inscritos, porcentajeME, porcentajeEG, porcentaje3erE, porcentajeIIngles, porcentajeIComp, porcentajeIIA }) {
+    reportar({ inscritos, porcentajeME, porcentajeEG, porcentaje3erE, porcentajeIIngles, porcentajeIComp, porcentajeIIA, totalDME, totalD3erE }) {
         this.lblInscritos.innerHTML = `${inscritos}`;
         this.lblPorcentajeME.innerHTML = `${porcentajeME.toFixed(2)}`;
         this.lblPorcentajeEG.innerHTML = `${porcentajeEG.toFixed(2)}`;
@@ -31,6 +35,8 @@ export default class Cl_vAcademiaPlain {
         this.lblPorcentajeIIngles.innerHTML = `${porcentajeIIngles.toFixed(2)}`;
         this.lblPorcentajeIComp.innerHTML = `${porcentajeIComp.toFixed(2)}`;
         this.lblPorcentajeIIA.innerHTML = `${porcentajeIIA.toFixed(2)}`;
+        this.lblTotalDME.innerHTML = `${totalDME.toFixed(2)}`;
+        this.lblTotalD3erE.innerHTML = `${totalD3erE.toFixed(2)}`;
     }
     mostrar() {
         if (this.vista === null)

@@ -31,23 +31,23 @@ export default class Cl_mInscrito extends Cl_mPersona {
         } 
         else return 0
     }
-    descuento(): number {
-       if(this.curso === "Ingles" && this.edad() <= 18) {
-            return this.precioB()*0.20;
-        } else if(this.curso === "Ingles" && this.edad() >= 50 && this.sexo === "Mujer" || this.curso === "Ingles" && this.edad() >= 60 && this.sexo === "Hombre"  ) {
+    descuentoME(): number{
+        if(this.edad() < 18){
+            return this.precioB()* 0.20;
+        } else 
+            return 0
+    }
+    descuento3erE(): number {
+       if(this.sexo === "Mujer" && this.edad() > 50) {
             return this.precioB()*0.40;
-        }
-        else if(this.curso === "Computacion" && this.edad() <= 18) {
-            return this.precioB()*0.20;
-        } else if(this.curso === "Computacion" && this.edad() >= 50 && this.sexo === "Mujer" || this.curso === "Computacion" && this.edad() >= 60 && this.sexo === "Hombre"  ) {
-            return this.precioB()*0.40;
-        } else if(this.curso === "I.A" && this.edad() <= 18) {
-            return this.precioB()*0.20;
-        } else if(this.curso === "I.A" && this.edad() >= 50 && this.sexo === "Mujer" || this.curso === "I.A" && this.edad() >= 60 && this.sexo === "Hombre"  ) {
-            return this.precioB()*0.40;
-        } else return 0;  }
+        } else
+            if(this.sexo === "Hombre" && this.edad() > 60){
+                return this.precioB()*0.40
+            } else
+                return 0
+    }
 
     inversion(): number {
-        return this.precioB() - this.descuento();  }
+        return this.precioB() - this.descuentoME();  }
    
 }

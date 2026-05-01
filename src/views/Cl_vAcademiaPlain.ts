@@ -10,6 +10,8 @@ export default class Cl_vAcademiaPlain implements I_vAcademia {
     private lblPorcentajeIIngles: HTMLElement;
     private lblPorcentajeIComp: HTMLElement;
     private lblPorcentajeIIA: HTMLElement;
+    private lblTotalDME: HTMLElement;
+    private lblTotalD3erE: HTMLElement;
     private btNewinscrito: HTMLButtonElement;
     private vista: HTMLElement | null;
 
@@ -21,6 +23,8 @@ export default class Cl_vAcademiaPlain implements I_vAcademia {
         this.lblPorcentajeIIngles = document.getElementById("body_lblPorcentajeIIngles") as HTMLElement;
         this.lblPorcentajeIComp = document.getElementById("body_lblPorcentajeIComp") as HTMLElement;
         this.lblPorcentajeIIA = document.getElementById("body_lblPorcentajeIIA") as HTMLElement;
+        this.lblTotalDME = document.getElementById("body_lblTotalDME") as HTMLElement;
+        this.lblTotalD3erE = document.getElementById("body_lblTotalD3erE") as HTMLElement;
         
         this.btNewinscrito = document.getElementById("body_btNewinscrito") as HTMLButtonElement;
         this.vista = document.getElementById("body");
@@ -29,7 +33,7 @@ export default class Cl_vAcademiaPlain implements I_vAcademia {
     onNewInscrito(callback: () => void): void {
         this.btNewinscrito.onclick = callback;      }
 
-    reportar({ inscritos, porcentajeME, porcentajeEG, porcentaje3erE, porcentajeIIngles, porcentajeIComp, porcentajeIIA }: { inscritos: number; porcentajeME: number; porcentajeEG: number; porcentaje3erE: number; porcentajeIIngles: number; porcentajeIComp: number; porcentajeIIA: number; }): void {
+    reportar({ inscritos, porcentajeME, porcentajeEG, porcentaje3erE, porcentajeIIngles, porcentajeIComp, porcentajeIIA, totalDME, totalD3erE }: { inscritos: number; porcentajeME: number; porcentajeEG: number; porcentaje3erE: number; porcentajeIIngles: number; porcentajeIComp: number; porcentajeIIA: number; totalDME: number; totalD3erE: number; }): void {
         this.lblInscritos.innerHTML = `${inscritos}`
         this.lblPorcentajeME.innerHTML = `${porcentajeME.toFixed(2)}`
         this.lblPorcentajeEG.innerHTML = `${porcentajeEG.toFixed(2)}`
@@ -37,6 +41,8 @@ export default class Cl_vAcademiaPlain implements I_vAcademia {
         this.lblPorcentajeIIngles.innerHTML = `${porcentajeIIngles.toFixed(2)}`
         this.lblPorcentajeIComp.innerHTML = `${porcentajeIComp.toFixed(2)}`
         this.lblPorcentajeIIA.innerHTML = `${porcentajeIIA.toFixed(2)}`
+        this.lblTotalDME.innerHTML = `${totalDME.toFixed(2)}`
+        this.lblTotalD3erE.innerHTML = `${totalD3erE.toFixed(2)}`
     }
 
     mostrar(): void {

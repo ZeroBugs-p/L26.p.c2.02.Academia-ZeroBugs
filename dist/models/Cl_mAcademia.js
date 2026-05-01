@@ -8,6 +8,8 @@ export default class Cl_mAcademia {
     cntIngles;
     cntComp;
     cntIA;
+    acmDME;
+    acmD3erE;
     constructor() {
         //inicializamos cada uno
         this.cntInscritos = 0;
@@ -17,6 +19,8 @@ export default class Cl_mAcademia {
         this.cntIngles = 0;
         this.cntComp = 0;
         this.cntIA = 0;
+        this.acmDME = 0;
+        this.acmD3erE = 0;
     }
     procesarInscrito(i) {
         this.cntInscritos++;
@@ -38,6 +42,8 @@ export default class Cl_mAcademia {
         else if (i.curso == "I.A") {
             this.cntIA++;
         }
+        this.acmDME += i.descuentoME();
+        this.acmD3erE += i.descuento3erE();
     }
     porcentajeME() {
         if (this.cntInscritos > 0) {
@@ -83,5 +89,11 @@ export default class Cl_mAcademia {
     }
     inscritos() {
         return this.cntInscritos;
+    }
+    totalDME() {
+        return this.acmDME;
+    }
+    totalD3erE() {
+        return this.acmD3erE;
     }
 }
