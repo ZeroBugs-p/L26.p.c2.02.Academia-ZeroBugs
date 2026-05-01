@@ -13,17 +13,19 @@ export default class Cl_mAcademia {
         private cntIA: number;
         private acmDME: number;
         private acmD3erE: number;
+        private acmInver: number;
         constructor(){
                 //inicializamos cada uno
                 this.cntInscritos = 0;
                 this.cntEGene = 0;
                 this.cntMenores = 0;
                 this.cnt3erE = 0;
-                this.cntIngles=0;
-                this.cntComp=0;
-                this.cntIA=0;
-                this.acmDME=0;
-                this.acmD3erE=0;
+                this.cntIngles = 0;
+                this.cntComp = 0;
+                this.cntIA = 0;
+                this.acmDME = 0;
+                this.acmD3erE = 0;
+                this.acmInver = 0;
         }
 
 
@@ -43,8 +45,9 @@ export default class Cl_mAcademia {
                 } else if(i.curso == "I.A"){
                         this.cntIA++
                 }
-                this.acmDME+=i.descuentoME()
-                this.acmD3erE+=i.descuento3erE()
+                this.acmDME += i.descuentoME()
+                this.acmD3erE += i.descuento3erE()
+                this.acmInver += i.inversion()
         }
         porcentajeME(): number{
                 if(this.cntInscritos > 0){
@@ -85,5 +88,8 @@ export default class Cl_mAcademia {
         }
         totalD3erE(): number{
                 return this.acmD3erE
+        }
+        inversionTotal(): number{
+                return this.acmInver
         }
 }

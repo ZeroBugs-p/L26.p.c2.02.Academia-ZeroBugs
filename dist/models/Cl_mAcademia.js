@@ -10,6 +10,7 @@ export default class Cl_mAcademia {
     cntIA;
     acmDME;
     acmD3erE;
+    acmInver;
     constructor() {
         //inicializamos cada uno
         this.cntInscritos = 0;
@@ -21,6 +22,7 @@ export default class Cl_mAcademia {
         this.cntIA = 0;
         this.acmDME = 0;
         this.acmD3erE = 0;
+        this.acmInver = 0;
     }
     procesarInscrito(i) {
         this.cntInscritos++;
@@ -44,6 +46,7 @@ export default class Cl_mAcademia {
         }
         this.acmDME += i.descuentoME();
         this.acmD3erE += i.descuento3erE();
+        this.acmInver += i.inversion();
     }
     porcentajeME() {
         if (this.cntInscritos > 0) {
@@ -95,5 +98,8 @@ export default class Cl_mAcademia {
     }
     totalD3erE() {
         return this.acmD3erE;
+    }
+    inversionTotal() {
+        return this.acmInver;
     }
 }

@@ -43,6 +43,13 @@ export default class Cl_mInscrito extends Cl_mPersona {
             return 0;
     }
     inversion() {
-        return this.precioB() - this.descuentoME();
+        if (this.descuentoME() > 0) {
+            return this.precioB() - this.descuentoME();
+        }
+        else if (this.descuento3erE() > 0) {
+            return this.precioB() - this.descuento3erE();
+        }
+        else
+            return this.precioB();
     }
 }
